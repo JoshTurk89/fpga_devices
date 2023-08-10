@@ -1,0 +1,32 @@
+
+
+# ignore trash
+vitis_spare/*
+devices/*/modelsim/*
+devices/*/vitis/*
+devices/*/vivado/*
+devices/*/bd/*/*/*
+devices/*/star_file/*.html
+devices/*/star_file/*.tcl
+devices/*/star_file/*_gpl.c
+devices/*/star_file/*.h
+
+# keep files
+!devices/*/bd/*/hw_handoff/*.tcl
+!devices/*/bd/*/hdl/*.vhd
+!devices/*/bd/*/*.bd
+!devices/*/bd/bd_2_star.py
+!devices/*/bd/README.txt
+
+!devices/*/modelsim/modelsim.ini
+!devices/*/modelsim/README.txt
+!devices/*/modelsim/run_modelsim.bat
+!devices/*/modelsim/*.do
+
+!devices/*/vivado/script.bat
+!devices/*/vivado/README.txt
+!devices/*/vivado/vv_2_star.py
+!devices/*/vivado/*.tcl
+
+!devices/*/vitis/vitis_2_star.py
+!devices/*/vitis/README.txt

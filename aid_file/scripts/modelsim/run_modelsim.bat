@@ -1,0 +1,1 @@
+C:\apps\modeltech64_2020.4\win64\modelsim.exe
