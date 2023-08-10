@@ -23,6 +23,7 @@ vivado 	    = 'vivado'
 vitis 	    = 'vitis'
 xdc         = 'xdc'
 star_file   = 'star_file'
+doc         = 'doc'
 
 #The different files 
 gitkeep 		= '.gitkeep'
@@ -126,7 +127,7 @@ def vitis_script(dev_name):
 def tb_imp_script(dev_name):
 
   cable             = "Digilent JTAG-SMT2NC 210308B0AF80"
-  zynqmp_utils_file = "C:/apps/Xilinx/Vitis/2020.1/scripts/vitis/util/zynqmp_utils.tcl"
+  zynqmp_utils_file = "C:/apps/Xilinx/Vitis/2023.1/scripts/vitis/util/zynqmp_utils.tcl"
   bitstream_file    = "../../star_file/" + dev_name + ".bit"
   xsa_file          = "../../star_file/" + dev_name + ".xsa"
   fsbl_app          = "../../star_file/fsbl.elf"
@@ -188,7 +189,7 @@ def modelsim_script(dev_name):
   sim_file  = "tb_" + dev_name + "_simulate.do"
   wave_file = "wave_tb_" + dev_name + ".do"
 
-  run_text  = "C:\\apps\\modeltech64_2020.4\\win64\\modelsim.exe"
+  run_text  = "C:\\modeltech64_10.1c\\win64\\modelsim.exe"
 
   comp_text = ["vlib work/ \n",
               "vmap work/ \n\n",
@@ -252,7 +253,7 @@ def vivado_script(dev_name):
   
   # bat file
   dev_prj_tcl = dev_name + "_prj.tcl"
-  text_bat = ["set PATH=%PATH%;C:\\apps\\Xilinx\\Vivado\\2020.1\\bin\n\n", "vivado -mode tcl -nojournal -nolog -notrace -source " + dev_prj_tcl]
+  text_bat = ["set PATH=%PATH%;C:\\Xilinx\\Vivado\\2023.1\\bin\\unwrapped\\win64.o\n\n", "vivado -mode tcl -nojournal -nolog -notrace -source " + dev_prj_tcl]
 
   # readme file
   text_readme = ["To use script.bat; it is needed to generate the tcl file from vivado. \n\n", 
@@ -319,6 +320,9 @@ def create_rep(dev_name):
   #Create each folder with its .gitkeep and back to repeat 
   os.mkdir(bd)
   create_gitkeep(bd)
+
+  os.mkdir(doc)
+  create_gitkeep(doc)
 
   os.mkdir(modelsim)
   create_gitkeep(modelsim)
