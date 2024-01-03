@@ -189,7 +189,7 @@ def modelsim_script(dev_name):
   sim_file  = "tb_" + dev_name + "_simulate.do"
   wave_file = "wave_tb_" + dev_name + ".do"
 
-  run_text  = "C:\\modeltech64_10.1c\\win64\\modelsim.exe"
+  run_text  = "D:\\modeltech64_10.1c\\win64\\modelsim.exe"
 
   comp_text = ["vlib work/ \n",
               "vmap work/ \n\n",
