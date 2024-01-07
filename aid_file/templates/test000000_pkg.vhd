@@ -1,12 +1,11 @@
 
 ------------------------------------------------------------------------------
--- Device/Project: Logic Adder Device
--- File: 	device_project_arch_pkg.vhd
--- Author:	Joshua Jesus Quintana Di­az
--- Date:	
--- Version:	1.0
--- History:	1.0 Initial Version
--- Design:	
+-- Device/Project:  Device/Project name tested
+-- File: 	          seqyyzz_pkg.vhd "zz -> num of sequentian" "yy -> type of functionality"
+-- Author:	        Joshua Jesus Quintana Di­az
+-- Date:	          dd/mm/yy
+-- Version:	        1.0
+-- History:	        1.0 Initial Version
 ------------------------------------------------------------------------------
 -- Description: 
 ------------------------------------------------------------------------------
@@ -14,24 +13,37 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.log2;
+use ieee.math_real.ceil;
+use ieee.math_real.floor;
 
 library work;
 use work.logger_pkg.all;
 use work.tb_common_pkg.all;
 
-package test000000 is
+package seqyyzz is
 
-  procedure test000000_example (
+  procedure seqyyzz_example (
     signal CLK       : in  std_logic;
     signal RESET_N   : in  std_logic;
     signal SEQ_START : out std_logic;
     signal SEQ_BUSY  : in  std_logic
   );
 
-end test000000;
+  procedure own_test (
+    signal CLK           : in  std_logic;
+    signal example_1     : out std_logic;
+    signal example_2     : out std_logic_vector(31 downto 0);
+    signal example_3     : in  std_logic;
+    signal example_4     : in  std_logic_vector(31 downto 0);
+    variable v_example_1 : in  std_logic;
+    variable v_example_2 : in  integer
+  );
 
-package body test000000 is
-  procedure test000000_example (
+end seqyyzz;
+
+package body seqyyzz is
+  procedure seqyyzz_example (
     signal CLK       : in  std_logic;
     signal RESET_N   : in  std_logic;
     signal SEQ_START : out std_logic;
@@ -42,25 +54,15 @@ package body test000000 is
     ----------------------------------------------------------------------------    
     ----------------------------------------------------------------------------
     -- Constant to make available each step
-    constant c_step10_en : boolean := true;
-    constant c_step20_en : boolean := true;
-    constant c_step30_en : boolean := true;
-    constant c_step40_en : boolean := true;
-    constant c_step50_en : boolean := true;
-    constant c_step60_en : boolean := true;
-    constant c_step70_en : boolean := true;
-    constant c_step80_en : boolean := true;
-    constant c_step90_en : boolean := true;
-
-    constant c_step10_en : boolean := false;
-    constant c_step20_en : boolean := false;
-    constant c_step30_en : boolean := false;
-    constant c_step40_en : boolean := false;
-    constant c_step50_en : boolean := false;
-    constant c_step60_en : boolean := false;
-    constant c_step70_en : boolean := false;
-    constant c_step80_en : boolean := false;
-    constant c_step90_en : boolean := false;
+    constant C_STEP10_EN : boolean := true;
+    constant C_STEP20_EN : boolean := true;
+    constant C_STEP30_EN : boolean := true;
+    constant C_STEP40_EN : boolean := true;
+    constant C_STEP50_EN : boolean := true;
+    constant C_STEP60_EN : boolean := true;
+    constant C_STEP70_EN : boolean := true;
+    constant C_STEP80_EN : boolean := true;
+    constant C_STEP90_EN : boolean := true;
 
   begin
 
@@ -74,10 +76,10 @@ package body test000000 is
     wait for 400 ns;
 
     ------------------------------------------------------------------------------
-    -- Test 010 : "Description"
+    -- Test 010 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step10_en then
+    if C_STEP10_EN then
 
     else
       rep_error(" == STEP10 skipped == ");
@@ -86,10 +88,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 020 : "Description"
+    -- Test 020 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step20_en then
+    if C_STEP20_EN then
 
     else
       rep_error(" == STEP20 skipped == ");
@@ -98,10 +100,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 030 : "Description"
+    -- Test 030 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step30_en then
+    if C_STEP30_EN then
 
     else
       rep_error(" == STEP30 skipped == ");
@@ -110,10 +112,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 040 : "Description"
+    -- Test 040 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step40_en then
+    if C_STEP40_EN then
 
     else
       rep_error(" == STEP40 skipped == ");
@@ -122,10 +124,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 050 : "Description"
+    -- Test 050 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step50_en then
+    if C_STEP50_EN then
 
     else
       rep_error(" == STEP50 skipped == ");
@@ -134,10 +136,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 060 : "Description"
+    -- Test 060 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step60_en then
+    if C_STEP60_EN then
 
     else
       rep_error(" == STEP60 skipped == ");
@@ -146,10 +148,10 @@ package body test000000 is
     wait for 1 us;
 
     ------------------------------------------------------------------------------
-    -- Test 070 : "Description"
+    -- Test 070 : "Step Description"
     ------------------------------------------------------------------------------
 
-    if c_step70_en then
+    if C_STEP70_EN then
 
     else
       rep_error(" == STEP70 skipped == ");
@@ -159,7 +161,7 @@ package body test000000 is
 
     assert false report "SIM END" severity failure;
 
-  end test000000_example;
+  end seqyyzz_example;
 
   procedure own_test (
     signal CLK           : in  std_logic;

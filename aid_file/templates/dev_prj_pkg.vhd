@@ -1,12 +1,11 @@
 
 ------------------------------------------------------------------------------
--- Device/Project: Logic Adder Device
--- File: 	device_project_arch_pkg.vhd
--- Author:	Joshua Jesus Quintana Di­az
--- Date:	
--- Version:	1.0
--- History:	1.0 Initial Version
--- Design:	
+-- Device/Project:  Device/Project name package
+-- File: 	          dev_prj_pkg.vhd
+-- Author:	        Joshua Jesus Quintana Di­az
+-- Date:	          dd/mm/yy
+-- Version:	        1.0
+-- History:	        1.0 Initial Version
 ------------------------------------------------------------------------------
 -- Description: 
 ------------------------------------------------------------------------------
@@ -21,7 +20,7 @@ use ieee.math_real.floor;
 library work;
 use work.TBD.all;
 
-package device_project_arch_pkg is
+package dev_prj_pkg is
 
   --------------------------------------------------------------------------------
   ---------------------- CONSTANT ------------------------------------------------
@@ -61,9 +60,9 @@ package device_project_arch_pkg is
     );
   end component;
 
-end device_project_arch_pkg;
+end dev_prj_pkg;
 
-package body device_project_arch_pkg is
+package body dev_prj_pkg is
 
   --------------------------------------------------------------------------------
   ---------------------- PROCEDURES ----------------------------------------------
@@ -99,4 +98,4 @@ package body device_project_arch_pkg is
 
   end function;
 
-end device_project_arch_pkg;
+end dev_prj_pkg;

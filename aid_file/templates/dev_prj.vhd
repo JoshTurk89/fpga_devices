@@ -1,12 +1,11 @@
 
 ------------------------------------------------------------------------------
--- Device/Project: Logic Adder Device
--- File: 	logic_adder.vhd
--- Author:	Joshua Jesus Quintana Di­az
--- Date:	
--- Version:	1.0
--- History:	1.0 Initial Version
--- Design:	
+-- Device/Project:  Device/Project name
+-- File: 	          dev_prj.vhd
+-- Author:	        Joshua Jesus Quintana Di­az
+-- Date:	          dd/mm/yy
+-- Version:	        1.0
+-- History:	        1.0 Initial Version
 ------------------------------------------------------------------------------
 -- Description: 
 ------------------------------------------------------------------------------

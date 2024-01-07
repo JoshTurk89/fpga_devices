@@ -1,12 +1,11 @@
 
 ------------------------------------------------------------------------------
--- Device/Project: Logic Adder Device
--- File: 	tb_device_project_arch.vhd
--- Author:	Joshua Jesus Quintana Di­az
--- Date:	
--- Version:	1.0
--- History:	1.0 Initial Version
--- Design:	
+-- Device/Project:  Testbench Device/Project name
+-- File: 	          tb_dev_prj.vhd
+-- Author:	        Joshua Jesus Quintana Di­az
+-- Date:	          dd/mm/yy
+-- Version:	        1.0
+-- History:	        1.0 Initial Version
 ------------------------------------------------------------------------------
 -- Description: 
 ------------------------------------------------------------------------------
@@ -14,6 +13,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.log2;
+use ieee.math_real.ceil;
+use ieee.math_real.floor;
 
 library work;
 use work.logger_pkg.all;
