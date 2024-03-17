@@ -1,7 +1,7 @@
 onbreak {quit -f} 
 onerror {quit -f} 
 
-vsim -t ps -voptargs="+acc"  -wlf work/vsim.wlf work.tb_pulse_gen_sync 
+vsim -t ps -voptargs="+acc"  -wlf work/vsim.wlf work.tb_pulse_gen
 
 set NumericStdNoWarnings 1 
 set StdArithNoWarnings 1 

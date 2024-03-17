@@ -88,4 +88,4 @@ begin
     EXAMPLE_2 => example_2
   );
 
-end architecture;
+end rtl;
