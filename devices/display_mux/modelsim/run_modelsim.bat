@@ -1,0 +1,1 @@
+D:\modeltech64_10.1c\win64\modelsim.exe
