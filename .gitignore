@@ -30,3 +30,32 @@ devices/*/star_file/*.h
 
 !devices/*/vitis/vitis_2_star.py
 !devices/*/vitis/README.txt
+
+projects/*/modelsim/*
+projects/*/vitis/*
+projects/*/vivado/*
+projects/*/bd/*/*/*
+projects/*/star_file/*.html
+projects/*/star_file/*.tcl
+projects/*/star_file/*_gpl.c
+projects/*/star_file/*.h
+
+# keep files
+!projects/*/bd/*/hw_handoff/*.tcl
+!projects/*/bd/*/hdl/*.vhd
+!projects/*/bd/*/*.bd
+!projects/*/bd/bd_2_star.py
+!projects/*/bd/README.txt
+
+!projects/*/modelsim/modelsim.ini
+!projects/*/modelsim/README.txt
+!projects/*/modelsim/run_modelsim.bat
+!projects/*/modelsim/*.do
+
+!projects/*/vivado/script.bat
+!projects/*/vivado/README.txt
+!projects/*/vivado/vv_2_star.py
+!projects/*/vivado/*.tcl
+
+!projects/*/vitis/vitis_2_star.py
+!projects/*/vitis/README.txt

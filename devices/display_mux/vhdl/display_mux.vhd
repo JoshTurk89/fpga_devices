@@ -13,14 +13,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.math_real.log2;
-use ieee.math_real.ceil;
-use ieee.math_real.floor;
-
-library work;
-use work.TBD.all;
 
 entity display_mux is
+  generic (
+    G_SEL : natural range 1 to 50 := 18
+  );
   port (
     CLK          : in  std_logic;
     RESET        : in  std_logic;
@@ -37,9 +34,9 @@ architecture rtl of display_mux is
   --------------------------------------------------------------------------------
   ------------------------ SIGNALS -----------------------------------------------
   --------------------------------------------------------------------------------
-  signal digit   : std_logic_vector(7 downto 0);
-  signal an_en   : std_logic_vector(3 downto 0);
-  signal control : std_logic;
+  signal cnt_freq_resh : unsigned((G_SEL - 1) downto 0);
+  signal digit         : std_logic_vector(7 downto 0);
+  signal an_en         : std_logic_vector(3 downto 0);
 
 begin
   --------------------------------------------------------------------------------
@@ -55,31 +52,29 @@ begin
   begin
     if (rising_edge(CLK)) then
       if (RESET = '1') then
-        an_en   <= (others => '1');
-        digit   <= (others => '0');
-        control <= '0';
+        cnt_freq_resh <= (others => '0');
+        digit         <= (others => '0');
+        an_en         <= (others => '1');
 
       else
-        if (control = '0') then
-          an_en(0) <= '0';
-          digit    <= UNIT;
-          control  <= '1';
-          
-        else
-          an_en(1) <= an_en(0);
-          an_en(2) <= an_en(1);
-          an_en(3) <= an_en(2);
-          an_en(0) <= an_en(3);
 
-          case an_en is
-            when "1110" => digit <= UNIT_SEG;
-            when "1101" => digit <= TEN_SEG;
-            when "1011" => digit <= HUNDRED_SEG;
-            when "0111" => digit <= THOUSAND_SEG;
-            when others => digit <= "11111101";
-          end case;
+        cnt_freq_resh <= cnt_freq_resh + 1;
 
-        end if;
+        case cnt_freq_resh((G_SEL - 1) downto (G_SEL - 2)) is
+          when "00" =>
+            an_en <= "1110";
+            digit <= UNIT_SEG;
+          when "01" =>
+            an_en <= "1101";
+            digit <= TEN_SEG;
+          when "10" =>
+            an_en <= "1011";
+            digit <= HUNDRED_SEG;
+          when others =>
+            an_en <= "0111";
+            digit <= THOUSAND_SEG;
+        end case;
+
       end if;
     end if;
   end process disp_mux;

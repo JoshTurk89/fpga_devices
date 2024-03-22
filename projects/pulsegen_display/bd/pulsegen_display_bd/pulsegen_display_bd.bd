@@ -1,0 +1,536 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x8B2B3CEBCDB78249",
+      "device": "xc7a35tcpg236-1",
+      "name": "pulsegen_display_bd",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "bcd2disp_unit": "",
+      "bin2bcd": "",
+      "display_mux": "",
+      "pulse_gen": "",
+      "bcd2disp_ten": "",
+      "bcd2disp_hundred": "",
+      "bcd2disp_thousand": "",
+      "constant_val_1": ""
+    },
+    "ports": {
+      "RESET": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "CLK": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "RESET",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "pulsegen_display_bd_CLK_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "FREQ_DIV": {
+        "direction": "I",
+        "left": "13",
+        "right": "0"
+      },
+      "DISPLAY": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "AN": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "PULSES": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "bcd2disp_unit": {
+        "vlnv": "xilinx.com:module_ref:bcd2disp_basys3:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_bcd2disp_basys3_0_0",
+        "xci_path": "ip\\pulsegen_display_bd_bcd2disp_basys3_0_0\\pulsegen_display_bd_bcd2disp_basys3_0_0.xci",
+        "inst_hier_path": "bcd2disp_unit",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bcd2disp_basys3",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "BCD": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "DIGIT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "bin2bcd": {
+        "vlnv": "xilinx.com:module_ref:bin2bcd:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_bin2bcd_0_0",
+        "xci_path": "ip\\pulsegen_display_bd_bin2bcd_0_0\\pulsegen_display_bd_bin2bcd_0_0.xci",
+        "inst_hier_path": "bin2bcd",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bin2bcd",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "BIN": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "UNIT": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "TEN": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "HUNDRED": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "THOUSAND": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "display_mux": {
+        "vlnv": "xilinx.com:module_ref:display_mux:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_display_mux_0_0",
+        "xci_path": "ip\\pulsegen_display_bd_display_mux_0_0\\pulsegen_display_bd_display_mux_0_0.xci",
+        "inst_hier_path": "display_mux",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "display_mux",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "UNIT_SEG": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "TEN_SEG": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "HUNDRED_SEG": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "THOUSAND_SEG": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "AN": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "DISPLAY": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "pulse_gen": {
+        "vlnv": "xilinx.com:module_ref:pulse_gen:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_pulse_gen_0_0",
+        "xci_path": "ip\\pulsegen_display_bd_pulse_gen_0_0\\pulsegen_display_bd_pulse_gen_0_0.xci",
+        "inst_hier_path": "pulse_gen",
+        "parameters": {
+          "G_FREQ_DIV_WIDTH": {
+            "value": "14"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pulse_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "PULSES_EN": {
+            "direction": "I"
+          },
+          "FREQ_DIV": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "PULSES": {
+            "direction": "O"
+          }
+        }
+      },
+      "bcd2disp_ten": {
+        "vlnv": "xilinx.com:module_ref:bcd2disp_basys3:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_bcd2disp_basys3_0_1",
+        "xci_path": "ip\\pulsegen_display_bd_bcd2disp_basys3_0_1\\pulsegen_display_bd_bcd2disp_basys3_0_1.xci",
+        "inst_hier_path": "bcd2disp_ten",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bcd2disp_basys3",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "BCD": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "DIGIT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "bcd2disp_hundred": {
+        "vlnv": "xilinx.com:module_ref:bcd2disp_basys3:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_bcd2disp_basys3_0_2",
+        "xci_path": "ip\\pulsegen_display_bd_bcd2disp_basys3_0_2\\pulsegen_display_bd_bcd2disp_basys3_0_2.xci",
+        "inst_hier_path": "bcd2disp_hundred",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bcd2disp_basys3",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "BCD": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "DIGIT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "bcd2disp_thousand": {
+        "vlnv": "xilinx.com:module_ref:bcd2disp_basys3:1.0",
+        "ip_revision": "1",
+        "xci_name": "pulsegen_display_bd_bcd2disp_basys3_0_3",
+        "xci_path": "ip\\pulsegen_display_bd_bcd2disp_basys3_0_3\\pulsegen_display_bd_bcd2disp_basys3_0_3.xci",
+        "inst_hier_path": "bcd2disp_thousand",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bcd2disp_basys3",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "pulsegen_display_bd_CLK_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "BCD": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "DIGIT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "constant_val_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "8",
+        "xci_name": "pulsegen_display_bd_xlconstant_0_0",
+        "xci_path": "ip\\pulsegen_display_bd_xlconstant_0_0\\pulsegen_display_bd_xlconstant_0_0.xci",
+        "inst_hier_path": "constant_val_1"
+      }
+    },
+    "nets": {
+      "CLK_0_1": {
+        "ports": [
+          "CLK",
+          "pulse_gen/CLK",
+          "bin2bcd/CLK",
+          "display_mux/CLK",
+          "bcd2disp_unit/CLK",
+          "bcd2disp_ten/CLK",
+          "bcd2disp_hundred/CLK",
+          "bcd2disp_thousand/CLK"
+        ]
+      },
+      "FREQ_DIV_0_1": {
+        "ports": [
+          "FREQ_DIV",
+          "pulse_gen/FREQ_DIV",
+          "bin2bcd/BIN"
+        ]
+      },
+      "RESET_0_1": {
+        "ports": [
+          "RESET",
+          "pulse_gen/RESET",
+          "bin2bcd/RESET",
+          "display_mux/RESET",
+          "bcd2disp_unit/RESET",
+          "bcd2disp_ten/RESET",
+          "bcd2disp_hundred/RESET",
+          "bcd2disp_thousand/RESET"
+        ]
+      },
+      "bcd2disp_hundred_DIGIT": {
+        "ports": [
+          "bcd2disp_hundred/DIGIT",
+          "display_mux/HUNDRED_SEG"
+        ]
+      },
+      "bcd2disp_ten_DIGIT": {
+        "ports": [
+          "bcd2disp_ten/DIGIT",
+          "display_mux/TEN_SEG"
+        ]
+      },
+      "bcd2disp_thousand_DIGIT": {
+        "ports": [
+          "bcd2disp_thousand/DIGIT",
+          "display_mux/THOUSAND_SEG"
+        ]
+      },
+      "bcd2disp_unit_DIGIT": {
+        "ports": [
+          "bcd2disp_unit/DIGIT",
+          "display_mux/UNIT_SEG"
+        ]
+      },
+      "bin2bcd_HUNDRED": {
+        "ports": [
+          "bin2bcd/HUNDRED",
+          "bcd2disp_hundred/BCD"
+        ]
+      },
+      "bin2bcd_TEN": {
+        "ports": [
+          "bin2bcd/TEN",
+          "bcd2disp_ten/BCD"
+        ]
+      },
+      "bin2bcd_THOUSAND": {
+        "ports": [
+          "bin2bcd/THOUSAND",
+          "bcd2disp_thousand/BCD"
+        ]
+      },
+      "bin2bcd_UNIT": {
+        "ports": [
+          "bin2bcd/UNIT",
+          "bcd2disp_unit/BCD"
+        ]
+      },
+      "display_mux_0_AN": {
+        "ports": [
+          "display_mux/AN",
+          "AN"
+        ]
+      },
+      "display_mux_0_DISPLAY": {
+        "ports": [
+          "display_mux/DISPLAY",
+          "DISPLAY"
+        ]
+      },
+      "pulse_gen_PULSES": {
+        "ports": [
+          "pulse_gen/PULSES",
+          "PULSES"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "constant_val_1/dout",
+          "pulse_gen/PULSES_EN"
+        ]
+      }
+    }
+  }
+}
